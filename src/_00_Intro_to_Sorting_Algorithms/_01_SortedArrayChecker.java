@@ -11,19 +11,16 @@ public class _01_SortedArrayChecker {
 	public static boolean intArraySorted(int[] arr) {
 
 		boolean total = false;
-		int count = 0;
 		for (int i = 0; i < arr.length; i++) {
-			if (arr[i] < arr[i+1] && i+1 <= arr.length) {
-				count++;
+			if (i + 1 <= arr.length-1) {
+				if (arr[i] < arr[i + 1]) {
+					total = true;
+				} else {
+					total = false;
+
+				}
 			}
 		}
-		if (count == 24) {
-			total = true;
-
-		} else {
-			total = false;
-		}
-		System.out.println(count);
 		return total;
 
 	}
@@ -34,7 +31,22 @@ public class _01_SortedArrayChecker {
 	 * This method takes in an array of doubles and it returns a boolean. The method
 	 * returns true if the double array is in ascending order and false otherwise.
 	 */
+	public static boolean doubleArraySorted(double[] arr) {
 
+		boolean total = false;
+		for (int i = 0; i < arr.length; i++) {
+			if (i + 1 <= arr.length-1) {
+				if (arr[i] < arr[i + 1]) {
+					total = true;
+				} else {
+					total = false;
+
+				}
+			}
+		}
+		return total;
+
+	}
 	/*
 	 * 3. Write a static method called charArraySorted.
 	 * 
@@ -43,6 +55,21 @@ public class _01_SortedArrayChecker {
 	 * otherwise (You can compare characters just like integers).
 	 */
 
+	public static boolean charArraySorted(char[] arr) {
+		boolean total = false;;
+		for (int i = 0; i < arr.length; i++) {
+			if (i + 1 <= arr.length-1) {
+				if (arr[i] < arr[i + 1]) {
+					total = true;
+				} else {
+					total = false;
+
+				}
+			}
+		}
+		return total;
+
+	}
 	/*
 	 * 4. Write a static method called stringArraySorted.
 	 *
@@ -50,5 +77,26 @@ public class _01_SortedArrayChecker {
 	 * returns true if the String array is in alphabetical order and false otherwise
 	 * (Use the compareTo(String) method).
 	 */
+	public static boolean stringArraySorted(String[] arr) {
+		boolean total = false;
+		int count = 0;
+		for (int i = 0; i < arr.length; i++) {
+			if (i + 1 <= arr.length-1) {
+				if (arr[i].compareTo(arr[i+1]) < 0) {
+					count++;
+				} else {
+					
 
+				}
+			}
+		}
+		if (count == arr.length-1) {
+			total = true;
+		}
+		else {
+			total = false;
+		}
+		return total;
+
+	}
 }

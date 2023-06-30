@@ -38,43 +38,63 @@ import processing.core.PApplet;
  *     mousePressed variable
  */
 public class _03_VisualArraySorter extends PApplet {
-    static final int WIDTH = 600;
-    static final int HEIGHT = 400;
+	static final int WIDTH = 600;
+	static final int HEIGHT = 400;
+	int[] ints;
 
-    @Override
-    public void settings() {
-        
-    }
+	@Override
+	public void settings() {
+		size(500, 500);
+	}
 
-    @Override
-    public void setup() {
-        
-    }
+	@Override
+	public void setup() {
+		ints = new int[50];
+		for (int i = 0; i < ints.length; i++) {
+			ints[i] = (int) random(HEIGHT);
+		}
+		noStroke();
+	}
 
-    @Override
-    public void draw() {
-        
-    }
+	@Override
+	public void draw() {
+		background(1, 1, 1);
+		fill(30, 255, 100);
+		for (int i = 0; i < ints.length; i++) {
+			rect(i * width / ints.length, HEIGHT, WIDTH / ints.length, -ints[i]);
+			stepSort(ints);
+		}
+		if (mousePressed == true) {
+			random();
+		}
+	}
 
-    static public void main(String[] passedArgs) {
-        PApplet.main(_03_VisualArraySorter.class.getName());
-    }
-    
-    /*********************** DO NOT MODIFY THE CODE BELOW ********************/
-    
-    int startIndex = 1;
+	static public void main(String[] passedArgs) {
+		PApplet.main(_03_VisualArraySorter.class.getName());
+	}
 
-    void stepSort(int[] arr) {
-      for (int i = startIndex; i < arr.length; i++) {
-        if (arr[i - 1] > arr[i]) {
-          int t = arr[i];
-          arr[i] = arr[i - 1];
-          arr[i - 1] = t;
+	void random() {
+		ints = new int[50];
+		for (int i = 0; i < ints.length; i++) {
+			ints[i] = (int) random(HEIGHT);
+		}
+	}
 
-          startIndex = i;
-          return;
-        }
-      }
-      startIndex = 1;
-    }
+	/*********************** DO NOT MODIFY THE CODE BELOW ********************/
+
+	int startIndex = 1;
+
+	void stepSort(int[] arr) {
+		for (int i = startIndex; i < arr.length; i++) {
+			if (arr[i - 1] > arr[i]) {
+				int t = arr[i];
+				arr[i] = arr[i - 1];
+				arr[i - 1] = t;
+
+				startIndex = i;
+				return;
+			}
+		}
+		startIndex = 1;
+	}
 }
