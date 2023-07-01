@@ -20,8 +20,9 @@ public class BogoSorter extends Sorter {
 	@Override
 	void sort(int[] array, SortingVisualizer display) {
 		Random ran = new Random();
+		int o;
 		int count = 0;
-		for (int o = 0; o < array.length; o++) {
+		for (o = 0; o < array.length; o++) {
 			for (int i = 0; i < array.length; i++) {
 				if (i + 1 <= array.length - 1) {
 					if (array[i] > array[i + 1]) {
@@ -30,15 +31,18 @@ public class BogoSorter extends Sorter {
 				}
 			}
 			if (count < array.length - 1) {
-				int ranTemp = ran.nextInt(array.length-1);
-				int ranTemp2 =ran.nextInt(array.length-1);
+				int ranTemp = ran.nextInt(array.length - 1);
+				int ranTemp2 = ran.nextInt(array.length - 1);
 				int temp = array[ranTemp];
 				array[ranTemp] = array[ranTemp2];
 				array[ranTemp2] = temp;
 				display.updateDisplay();
 				o=0;
-			}
+				count = 0;
 		}
-	
+
+		
+
+		}
 	}
 }
