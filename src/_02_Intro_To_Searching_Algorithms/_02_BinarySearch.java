@@ -16,14 +16,12 @@ public class _02_BinarySearch {
 	public static int binarySearch(int[] array, int start, int end, int value) {
 		// 2. if end is greater than or equal to start, then
 		// do steps 3 - 6.
-		int mid = 0;
+		
 		if (end >= start) {
-			if (array.length%2 == 0) {
-				mid = array.length/2;
-			}
-			else {
-				mid = (int) (array.length/2+0.5);
-			}
+		// 3. create an integer called mid and set it equal
+		// to the half way point between start and end
+				int mid = 0;
+				mid = (end-start)/2+start;
 			// 4. if the array element at mid is equal to value
 			// then return mid
 			if (array[mid] == value) {
@@ -41,10 +39,9 @@ public class _02_BinarySearch {
 				return binarySearch(array, mid + 1, end, value);
 
 		}
-		// 3. create an integer called mid and set it equal
-		// to the half way point between start and end
 
 		// 7. return -1 because the value was not found
 		return -1;
+		
 	}
 }
