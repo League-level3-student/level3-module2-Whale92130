@@ -1,5 +1,7 @@
 package _03_More_Algorithms;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.List;
 
 /*
@@ -68,6 +70,95 @@ public class Algorithms {
 				total = peeps.get(i);
 			}
 		}
+		return total;
+	}
+
+	public static String findLongestWord(List<String> words) {
+		String total = "";
+		for (int i = 0; i < words.size(); i++) {
+			if (words.get(i).length() > total.length()) {
+				total = words.get(i);
+			}
+		}
+		return total;
+	}
+
+	public static Boolean containsSOS(List<String> message) {
+		boolean total = false;
+		for (int i = 0; i < message.size(); i++) {
+			if (message.get(i).equals("... --- ...")) {
+				return true;
+			}
+			else {
+				total = false;
+			}
+		}
+		return total;
+	}
+
+	public static List<Double> sortScores(List<Double> results) {
+		Double[] arr = new Double[results.size()];
+		
+		for (int p = 0; p < results.size(); p ++) {
+			arr[p] = results.get(p);
+		}
+		for (int o = 0; o < arr.length; o++) {
+			for (int i = 0; i < arr.length; i++) {
+				if (i + 1 <= arr.length - 1) {
+					if (arr[i] > arr[i + 1]) {
+						Double temp = arr[i];
+						arr[i] = arr[i + 1];
+						arr[i + 1] = temp;
+						
+					}
+				}
+			}
+		}
+		List<Double> total =  Arrays.asList(arr);
+		return total;
+	}
+
+	public static List<String> sortDNA(List<String> unsortedSequences) {
+		String[] arr = new String[unsortedSequences.size()];
+		
+		for (int p = 0; p < unsortedSequences.size(); p ++) {
+			arr[p] = unsortedSequences.get(p);
+		}
+		for (int o = 0; o < arr.length; o++) {
+			for (int i = 0; i < arr.length; i++) {
+				if (i + 1 <= arr.length - 1) {
+					if (arr[i].length() > arr[i + 1].length()) {
+						String temp = arr[i];
+						arr[i] = arr[i + 1];
+						arr[i + 1] = temp;
+						
+					}
+				}
+			}
+		}
+		List<String> total =  Arrays.asList(arr);
+		return total;
+	}
+
+	public static List<String> sortWords(List<String> words) {
+	String[] arr = new String[words.size()];
+		
+		for (int p = 0; p < words.size(); p ++) {
+			arr[p] = words.get(p);
+		}
+		for (int o = 0; o < arr.length; o++) {
+			for (int i = 0; i < arr.length; i++) {
+				if (i + 1 <= arr.length - 1) {
+					if (arr[i].compareTo(arr[i + 1]) > 0) {
+						String temp = arr[i];
+						arr[i] = arr[i + 1];
+						arr[i + 1] = temp;
+						
+					}
+				}
+			}
+		}
+		List<String> total =  Arrays.asList(arr);
 		return total;
 	}
 }
